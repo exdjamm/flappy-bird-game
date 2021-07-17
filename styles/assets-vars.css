@@ -1,0 +1,4 @@
+:root{
+	--img-front-base: url("../assets/sprites/colliders/base-front.png") ;
+	--img-back-base: url("../assets/sprites/colliders/base-back.png") ;
+}
