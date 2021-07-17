@@ -25,13 +25,22 @@ class HomeScreen {
     }
 
     waitFirstClick(){
-        this.content.addEventListener("click", ()=>{
+        this.clickListener = () => {
             this.removeInitialElements();
-        }, false)
+            this.runGame();
+        }
+
+        this.content.addEventListener("click", this.clickListener, false);
     }
 
     removeInitialElements(){
         this.initialElements.style.opacity = "0";
+    }
+
+    runGame(){
+        this.content.removeEventListener("click", this.clickListener, false);
+
+        this.game = new GameController(this.bird);
     }
 
 }
