@@ -1,0 +1,46 @@
+#bird {
+    width: 52px;
+    top: 215px;
+    left: 44px;
+    animation: birdwave 0.5s ease-in-out infinite alternate;
+}
+
+#initial-elements {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#game-title {
+    position: relative;
+    width: 250px;
+    margin-top: 100px;
+    margin-bottom: 35px;
+}
+
+#get-ready {
+    width: 170px;
+    margin-bottom: 50px;
+}
+
+#click {
+    position: absolute;
+    bottom: -160px;
+}
+
+.game-element {
+    position: absolute;
+}
+
+@keyframes birdwave {
+    from {
+        transform: translateY(-20%);
+    }
+    to {
+        transform: translateY(20%);
+    }
+}
+
