@@ -1,1 +1,1 @@
-game = new GameController();
+HomeScreen = new HomeScreen();
