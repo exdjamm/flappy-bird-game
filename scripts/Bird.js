@@ -69,6 +69,10 @@ class Bird {
         this._birdElement.style.top = newPosY;
     }
 
+    jump(){
+        //jump
+    }
+
     goToStartPosition(){
         this.birdElement.style.top = this.startPosition.top;
         this.birdElement.style.left = this.startPosition.left;
