@@ -1,8 +1,11 @@
 #bird {
     width: 52px;
-    top: 215px;
-    left: 44px;
     animation: birdwave 0.5s ease-in-out infinite alternate;
+}
+
+#get-ready {
+    width: 170px;
+    margin-bottom: 50px;
 }
 
 #initial-elements {
@@ -12,6 +15,7 @@
     justify-content: center;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: ease 0.6s;
 }
 
 #game-title {
