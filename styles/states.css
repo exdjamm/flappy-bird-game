@@ -1,0 +1,6 @@
+.day-time{
+	--bg-time-of-day: url("../assets/sprites/backgrounds/background-day.png" );
+}
+.night-time{
+	--bg-time-of-day: url("../assets/sprites/backgrounds/background-night.png") ;
+}
