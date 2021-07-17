@@ -1,17 +1,13 @@
 #game-screen {
     position: relative;
     margin-top: 180px;
-    height: 512px;
-}
-#background-repeat {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    /*height: calc(100vh - 180px);*/
     width: 100vw;
-    background-repeat: repeat;
-    background-image: url("../assets/sprites/backgrounds/background-day.png");
+
+    display: flex;
+    justify-content: center;
 }
+
 #game-content {
     position: relative;
     width: 288px;
