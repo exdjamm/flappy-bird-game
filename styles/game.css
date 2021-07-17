@@ -23,17 +23,11 @@ img {
     width: 288px;
     height: 512px;
 }
-#bg-img {
-    position: relative;
-}
-
 .game-element {
     position: absolute;
 }
 #bird {
     width: 52px;
-    top: 215px;
-    left: 44px;
     animation: birdwave 0.5s ease-in-out infinite alternate;
 }
 #initial-elements {
