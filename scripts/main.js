@@ -5,7 +5,7 @@ flap = ['downflap', "midflap", "upflap"]
 flapState = 1
 
 setInterval(()=>{
-    bird.src = `../assets/sprites/birds/yellow/${flap[flapState]}.png`
+    bird.src = `./assets/sprites/birds/yellow/${flap[flapState]}.png`
 
     flapState = (flapState == 2) ? 0 : flapState+1 ;
 
