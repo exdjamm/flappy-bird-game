@@ -37,6 +37,7 @@ img {
     justify-content: center;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: ease 0.6s;
 }
 #game-title {
     position: relative;
