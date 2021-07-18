@@ -24,7 +24,6 @@
 
 #bg-floor {
     bottom: 0;
-    left: calc(-50vw + calc(288px / 2) );
     height: 112px;
     width: 100vw;
     overflow: hidden;
