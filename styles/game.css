@@ -12,7 +12,7 @@
     position: relative;
     margin-top: 180px;
     width: 288px;
-    height: 512px;
+    height: var(--game-height);
 }
 
 #background-repeat {
@@ -24,7 +24,7 @@
 }
 
 #bg-floor {
-    top: 512px;
+    top: var(--game-height);
     height: 112px;
     width: 100vw;
     overflow: hidden;

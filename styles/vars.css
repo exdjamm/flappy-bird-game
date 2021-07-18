@@ -1,4 +1,6 @@
 :root{
+	--game-height:  512px;
+
 	--img-front-base: url("../assets/sprites/colliders/base-front.png") ;
 	--img-back-base: url("../assets/sprites/colliders/base-back.png") ;
 

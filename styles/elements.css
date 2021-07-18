@@ -47,7 +47,7 @@
 #pipes div[id^="pipe-"]{
     position: relative;
     width: var(--pipe-width);
-    height: 512px;
+    height: var(--game-height);
 }
 
 .pipe-divisor{
