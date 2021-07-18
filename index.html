@@ -13,9 +13,22 @@
 </head>
 <body>
     <div id="content">
-
         <div id="game-screen">
+
             <div id="background-repeat">
+                <div id="pipe-spawn">
+                    <div id="pipe-1" class="pipe-box game-element">
+                        <img class="pipe pipe-top" src="./assets/sprites/colliders/pipe-green.png" alt="pipe">
+                        <div class="space-between-pipes"></div>
+                        <img class="pipe pipe-bottom" src="./assets/sprites/colliders/pipe-green.png" alt="pipe">
+                    </div>
+                    <div id="pipe-2" class="pipe-box game-element">
+                        <img class="pipe pipe-top" src="./assets/sprites/colliders/pipe-green.png" alt="pipe">
+                        <div class="space-between-pipes"></div>
+                        <img class="pipe pipe-bottom" src="./assets/sprites/colliders/pipe-green.png" alt="pipe">
+                    </div>
+                </div>
+
                 <div id="game-content">
                     <div id="initial-elements" class="game-element">
                         <img id="game-title" src="./assets/sprites/messages/title.png" alt="">
@@ -23,18 +36,17 @@
                         <img id="click" src="./assets/sprites/messages/click.png" alt="">
                     </div>
                     <img id="bird" class="game-element" src="./assets/sprites/birds/yellow/downflap.png" alt="">
-                    <div id="bg-floor"  class="game-element"></div>
+                    <div id="bg-floor" class="game-element"></div>
                 </div>
             </div>
-        </div>
 
+        </div>
         <a href="https://www.github.com/henriqueclaranhan">
             <footer id="dev-github">
                 <img src="./assets/sprites/social/github.png" alt="">
                 <span>Henrique Claranhan</span>
             </footer>
         </a>
-
     </div>
 </body>
 <script src="./scripts/GameAudio.js"></script>

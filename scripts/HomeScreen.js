@@ -5,6 +5,7 @@ class HomeScreen {
 
         this._bird;
         this._floor;
+        this.pipes;
 
         this.initialize();
         this.waitFirstClick();
@@ -12,6 +13,7 @@ class HomeScreen {
 
     initialize(){
         this.bird = new Bird();
+        this.pipes = new Pipe();
         this.floor = new Floor();
         this.showInitialElements();
     }
@@ -32,6 +34,13 @@ class HomeScreen {
     }
     set bird(bird){
         this._bird = bird;
+    }
+
+    get pipes(){
+        return this._pipes;
+    }
+    set pipes(pipe){
+        this._pipes = pipe;
     }
 
     get floor(){
@@ -60,7 +69,7 @@ class HomeScreen {
     runGame(){
         this.content.removeEventListener("click", this.clickListener, false);
 
-        this.game = new GameController(this.bird, this.floor);
+        this.game = new GameController(this.bird, this.pipes, this.floor);
     }
 
 }
