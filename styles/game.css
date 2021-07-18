@@ -22,12 +22,51 @@
     background-image: var(--bg-time-of-day);
 }
 
+#pipe-spawn{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.pipe-box {
+    right: -170px;
+    margin-top: -390px;
+    display: flex;
+    flex-direction: column;
+    animation: pipeloop 3.5s linear infinite;
+}
+#pipe-1 {
+    animation-delay: 1.75s;
+}
+#pipe-2 {
+    animation-delay: 3.50s;
+}
+.pipe {
+    width: 85px;
+}
+.pipe-top {
+    transform: rotate(180deg);
+}
+.space-between-pipes {
+    background-color: red;
+    padding: 75px 0;
+}
+
 #bg-floor {
     bottom: 0;
     left: calc(-50vw + calc(288px / 2) );
     height: 112px;
+
     width: 100vw;
     overflow: hidden;
+
+
+
+    -moz-box-shadow: 0 110px 1px #dfd996;
+    -webkit-box-shadow: 0 110px 1px #dfd996;
+    box-shadow: 0 110px 1px #dfd996;
+
 }
 
 #floor-front{
@@ -54,12 +93,20 @@
     animation: fakeloop 1s linear infinite;
 }
 
+@keyframes pipeloop {
+    from {
+        right: -170px;
+    }
+    to {
+        right: 100%;
+    }
+}
+
 @keyframes fakeloop{
     from {
         transform: translateY(0px);  
 
     }to{
         transform: translateY(-26px);  
-
     }
 }

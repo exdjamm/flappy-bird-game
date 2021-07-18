@@ -8,8 +8,8 @@ class Bird {
         this._flapState = 1;
 
         this._startPosition = {
-            top: "215px",
-            left: "44px"
+            top: "209px",
+            left: "19%"
         }
 
         this.initialize();
@@ -67,6 +67,10 @@ class Bird {
 
     setBirdPosY(newPosY){
         this._birdElement.style.top = newPosY;
+    }
+
+    jump(){
+        //jump
     }
 
     goToStartPosition(){

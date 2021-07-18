@@ -3,13 +3,19 @@ class HomeScreen {
         this._content = document.querySelector("#content");
         this._initialElements = document.querySelector("#initial-elements");
 
+        this._bird;
+        this._floor;
+        this.pipes;
+
         this.initialize();
         this.waitFirstClick();
     }
 
     initialize(){
         this.bird = new Bird();
-        this.initialElements.style.opacity = "1";
+        this.pipes = new Pipe();
+        this.floor = new Floor();
+        this.showInitialElements();
     }
 
     get content(){
@@ -19,19 +25,51 @@ class HomeScreen {
     get initialElements(){
         return this._initialElements;
     }
-
     set initialElements(initialElements){
         this._initialElements = initialElements;
     }
 
-    waitFirstClick(){
-        this.content.addEventListener("click", ()=>{
-            this.removeInitialElements();
-        }, false)
+    get bird(){
+        return this._bird;
+    }
+    set bird(bird){
+        this._bird = bird;
     }
 
-    removeInitialElements(){
+    get pipes(){
+        return this._pipes;
+    }
+    set pipes(pipe){
+        this._pipes = pipe;
+    }
+
+    get floor(){
+        return this._floor;
+    }
+    set floor(floor){
+        this._floor = floor;
+    }
+
+    waitFirstClick(){
+        this.clickListener = () => {
+            this.hideInitialElements();
+            this.runGame();
+        }
+
+        this.content.addEventListener("click", this.clickListener, false);
+    }
+    
+    showInitialElements(){
+        this.initialElements.style.opacity = "1";
+    }
+    hideInitialElements(){
         this.initialElements.style.opacity = "0";
+    }
+
+    runGame(){
+        this.content.removeEventListener("click", this.clickListener, false);
+
+        this.game = new GameController(this.bird, this.pipes, this.floor);
     }
 
 }
