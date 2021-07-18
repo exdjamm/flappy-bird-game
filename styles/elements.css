@@ -54,7 +54,6 @@
     height: var(--open-pipe-height);
     width: var(--pipe-width);
     margin-top: var(--body-pipe-height);
-    background-color: red;
 }
 
 .pipe{
