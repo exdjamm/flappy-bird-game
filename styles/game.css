@@ -1,7 +1,7 @@
 #game-screen {
     position: relative;
-    margin-top: 180px;
-    /*height: calc(100vh - 180px);*/
+    
+    height: 100vh;
     width: 100vw;
 
     display: flex;
@@ -10,20 +10,21 @@
 
 #game-content {
     position: relative;
+    margin-top: 180px;
     width: 288px;
     height: 512px;
 }
 
 #background-repeat {
     position: absolute;
-    height: 512px;
+    height: 100vh;
     width: 100vw;
-    background-repeat: repeat;
+    background-repeat: repeat-x;
     background-image: var(--bg-time-of-day);
 }
 
 #bg-floor {
-    bottom: 0;
+    top: 512px;
     height: 112px;
     width: 100vw;
     overflow: hidden;
