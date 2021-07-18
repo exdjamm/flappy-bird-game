@@ -9,7 +9,7 @@ class Bird {
 
         this._startPosition = {
             top: "209px",
-            left: "25%"
+            left: "19%"
         }
 
         this.initialize();
