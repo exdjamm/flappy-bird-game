@@ -42,12 +42,16 @@
     position: relative;
     height: 100%;
     overflow: hidden;
+    display: flex;
 }
 
 #pipes div[id^="pipe-"]{
-    position: relative;
+    position: absolute;
     width: var(--pipe-width);
     height: var(--game-height);
+
+    animation: pipemove 3s linear infinite;
+    animation-play-state: paused;
 }
 
 .pipe-divisor{
@@ -66,7 +70,7 @@
 
 .pipe-top{
     transform: rotateX(180deg);
-    top: calc( var(--pipe-height) * -1 );
+    top: calc( var(--pipe-height) * -1 + var(--body-pipe-height));
 }
 
 
@@ -83,3 +87,10 @@
     }
 }
 
+@keyframes pipemove{
+    from{
+        transform: translateX(calc(100vw + 52px));
+    }to{
+        transform: translateX(-52px);
+    }
+}
