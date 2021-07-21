@@ -69,6 +69,10 @@ class Bird {
         this._birdElement.style.top = newPosY;
     }
 
+    getBirdCoordinates(){
+        return this.birdElement.getBoundingClientRect();
+    }
+
     jump(){
         //jump
     }

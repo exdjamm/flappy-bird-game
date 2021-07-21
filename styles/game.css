@@ -28,6 +28,7 @@ img {
 }
 #bird {
     width: 52px;
+    height: 36.7px;
     animation: birdwave 0.5s ease-in-out infinite alternate;
 }
 #initial-elements {
@@ -82,7 +83,9 @@ img {
 }
 .space-between-pipes {
     background-color: red;
-    padding: 75px 0;
+    height: 150px;
+    width: 50%;
+    align-self: flex-end;
 }
 
 #bg-floor {

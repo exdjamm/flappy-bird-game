@@ -2,6 +2,12 @@ class Pipe {
     constructor(){
         this._pipeSpawn = document.querySelector("#pipe-spawn");
         this._allPipeBox = document.querySelectorAll(".pipe-box");
+        this._justPipes = {
+            "topPipes": document.querySelectorAll(".pipe-top"),
+            "bottomPipes": document.querySelectorAll(".pipe-bottom")
+        }
+
+        this._pipeScoreAreas = document.querySelectorAll(".space-between-pipes");
 
         this._pipePosY = {
             MIN: -570,
@@ -15,6 +21,7 @@ class Pipe {
 
     initialize(){
         this.stopPipes();
+        this.goToStartPosition();
     }
 
     get pipeSpawn(){
@@ -41,6 +48,27 @@ class Pipe {
     set pipePosYIntervals(pipePosYInterval){
         this._pipePosYIntervals = pipePosYInterval;
     }
+    
+
+    get justPipes(){
+        return this._justPipes;
+    }
+
+    get pipeScoreAreas(){
+        return this._pipeScoreAreas;
+    }
+
+    getSpawnRight(){
+        return this.pipeSpawn.getBoundingClientRect().right;
+    }
+
+    getPipeRight(pipeBox){
+        return pipeBox.getBoundingClientRect().right;
+    }
+
+    getPipeStyleRight(pipeBox){
+        return Number(pipeBox.style.right.replace("px", ""));
+    }
 
     startPipes(){
         this.allPipeBox.forEach(pipe => {
@@ -66,10 +94,6 @@ class Pipe {
         this.pipePosYIntervals.push(this.changePipePosY);
     }
 
-    getRandomPipePosY(){
-        return Math.floor(Math.random()*(this.pipePosY.MAX - this.pipePosY.MIN + 1) + this.pipePosY.MIN);
-    }
-
     stopPipes(){
         this.pipePosYIntervals.forEach(clearInterval);
 
@@ -78,7 +102,18 @@ class Pipe {
         });
     }
 
-    removeAllPipes(){
-
+    getRandomPipePosY(max = this.pipePosY.MAX, min = this.pipePosY.MIN){
+        return Math.floor(Math.random()*(max - min + 1) + min);
     }
+
+    setRandomPipePosY(pipeBox){
+        pipeBox.style.marginTop = `${this.getRandomPipePosY()}px`;
+    }
+
+    goToStartPosition(){
+        this.allPipeBox.forEach(pipe => {
+            pipe.style.right = "-170px";
+        });
+    }
+
 }
