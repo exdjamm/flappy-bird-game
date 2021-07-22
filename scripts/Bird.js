@@ -2,6 +2,8 @@ class Bird {
     constructor(){
         this._birdElement = document.querySelector("#bird");
         this._isAlive = true;
+        this._isJumping;
+        this._jumpCount;
         this._color = "yellow";
 
         this._flapView = ['downflap', "midflap", "upflap"];
@@ -16,6 +18,7 @@ class Bird {
     }
     
     initialize(){
+        this.isJumping = false;
         this.goToStartPosition();
         this.startFlapWave();
         
@@ -37,6 +40,20 @@ class Bird {
     }
     set isAlive(isAlive){
         this._isAlive = isAlive;
+    }
+
+    get isJumping(){
+        return this._isJumping;
+    }
+    set isJumping(isJumping){
+        this._isJumping = isJumping;
+    }
+
+    get jumpCount(){
+        return this._jumpCount;
+    }
+    set jumpCount(jumpCount){
+        this._jumpCount = jumpCount;
     }
 
     get color(){
@@ -61,12 +78,11 @@ class Bird {
         return this._startPosition;
     }
 
-    getBirdPosY(){
-        return this.birdElement.getBoundingClientRect().top;
+    getBirdStyleTop(){
+        return Number(this.birdElement.style.top.replace("px", ""));
     }
-
-    setBirdPosY(newPosY){
-        this._birdElement.style.top = newPosY;
+    setBirdStyleTop(newStyleTop){
+        this._birdElement.style.top = `${newStyleTop}px`;
     }
 
     getBirdCoordinates(){
@@ -74,7 +90,25 @@ class Bird {
     }
 
     jump(){
-        //jump
+        clearInterval(this.jumpInterval);
+        clearTimeout(this.jumpTimeout);
+        this.jumpCount = 0;
+        this.isJumping = true;
+
+        this.jumpInterval = setInterval(() => {
+            this.jumpCount++;
+
+            if(this.getBirdCoordinates().top > 10){
+                this.setBirdStyleTop(this.getBirdStyleTop() - 2);
+            }
+
+            if(this.jumpCount > 30) {
+                clearInterval(this.jumpInterval);
+                this.jumpTimeout = setTimeout(() => {
+                    this.isJumping = false;
+                }, 90);
+            }
+        }, 6.25);
     }
 
     goToStartPosition(){

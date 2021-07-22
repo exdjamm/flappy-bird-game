@@ -127,8 +127,22 @@ class GameController {
         return isColliding;
     }
 
-    detectAllCollisions(){
+    initFallIntervall(){
+        this.fallInterval = setInterval(() => {
+            let birdCoordinates = this.bird.getBirdCoordinates();
+            
+            if(!this.bird.isJumping){
+                if(!this.floorIsColliding(birdCoordinates.bottom)){
+                    this.bird.setBirdStyleTop(this.bird.getBirdStyleTop() + 2);
+                }
+                else {
+                    clearInterval(this.fallInterval);
+                }
+            }
+        }, 5.75);
+    }
 
+    detectAllCollisions(){
         this.birdIsInsideTheScoreArea = false;
 
         this.collisionsInterval = setInterval(() => {
@@ -180,6 +194,7 @@ class GameController {
     startAllGameElements(){
         this.scoreController.initialize();
         this.executeBirdFirstActions();
+        this.initFallIntervall();
         this.pipes.startPipes();
         this.detectAllCollisions();
         this.initTouchEvents();
