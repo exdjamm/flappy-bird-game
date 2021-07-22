@@ -1,12 +1,10 @@
 class GameController {
-    constructor(bird, pipes, floor){
+    constructor(bird, pipes, floor, scoreController){
         this._content = document.querySelector("#content");
+        this._scoreController = scoreController;
         this._bird = bird;
         this._pipes = pipes;
         this._floor = floor;
-
-        this._score;
-        this._maxScore;
 
         this._gameIsRunning = true;
         this._gameAudio = new GameAudio();
@@ -15,7 +13,7 @@ class GameController {
     }
 
     initialize(){
-        this.score = 0;
+        this.maxScore = 0;
         this.startAllGameElements();
     }
 
@@ -28,6 +26,13 @@ class GameController {
     }
     set gameIsRunning(IsRunning){
         this._gameIsRunning = IsRunning;
+    }
+
+    get scoreController(){
+        return this._scoreController;
+    }
+    set scoreController(scoreController){
+        this._scoreController = scoreController;
     }
 
     get bird(){
@@ -43,20 +48,6 @@ class GameController {
 
     get floor(){
         return this._floor;
-    }
-
-    get score(){
-        return this._score;
-    }
-    set score(scoreValue){
-        this._score = scoreValue;
-    }
-
-    get maxScore(){
-        return this._maxScore;
-    }
-    set maxScore(maxScore){
-        this._maxScore = maxScore;
     }
 
     get gameAudio(){
@@ -137,6 +128,9 @@ class GameController {
     }
 
     detectAllCollisions(){
+
+        this.birdIsInsideTheScoreArea = false;
+
         this.collisionsInterval = setInterval(() => {
             let birdCoordinates = this.bird.getBirdCoordinates();
 
@@ -144,13 +138,20 @@ class GameController {
             if(this.topPipesAreColliding(birdCoordinates)
                 || this.bottomPipesAreColliding(birdCoordinates)
                 || this.floorIsColliding(birdCoordinates.bottom)){
-                    
-                this.stopAllGameElements();
+                
+                this.runGameOverActions();
             }
 
             //DETECT SCORE COLISION
             if(this.scoreIsColliding(birdCoordinates.right)){
-                //score++
+                if(!this.birdIsInsideTheScoreArea){
+                    this.scoreController.increaseScore();
+                    this.gameAudio.playAudio("point");
+                    this.birdIsInsideTheScoreArea = true;
+                }
+            }
+            else {
+                this.birdIsInsideTheScoreArea = false;
             }
 
         });
@@ -160,7 +161,24 @@ class GameController {
         clearInterval(this.collisionsInterval);
     }
 
+    runGameOverActions(){
+        this.gameAudio.playAudio("hit");
+        
+        setTimeout(() => {
+            this.gameAudio.playAudio("die")
+        }, 500);
+
+        this.scoreController.updateMaxScore();
+        this.stopAllGameElements();
+        this.showGameOverScreen();
+    }
+
+    showGameOverScreen(){
+
+    }
+
     startAllGameElements(){
+        this.scoreController.initialize();
         this.executeBirdFirstActions();
         this.pipes.startPipes();
         this.detectAllCollisions();
@@ -168,6 +186,7 @@ class GameController {
     }
 
     stopAllGameElements(){
+        this.scoreController.hideScoreBoxes();
         this.bird.stopFlap();
         this.pipes.stopPipes();
         this.floor.stopLoop();

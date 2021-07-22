@@ -26,6 +26,34 @@ img {
 .game-element {
     position: absolute;
 }
+#max-score-box, #score-box {
+    opacity: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    transition: opacity ease 0.6s;
+    transition-delay: 0.2s;
+}
+#max-score-box {
+    z-index: 2;
+    left: 15px;
+    top: 15px;
+    align-items: center;
+}
+#max-score-img {
+    margin-right: 5px;
+}
+#max-score-numbers {
+    height: 35px;
+}
+#max-score-numbers * {
+    margin-right: -4px;
+}
+#score-box {
+    margin-top: -80vh;
+    width: 100vw;
+    height: 7.5vh;
+}
 #bird {
     width: 52px;
     height: 36.7px;
@@ -82,7 +110,6 @@ img {
     transform: rotate(180deg);
 }
 .space-between-pipes {
-    background-color: red;
     height: 150px;
     width: 50%;
     align-self: flex-end;
