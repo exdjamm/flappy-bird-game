@@ -3,8 +3,12 @@ class Bird {
         this._birdElement = document.querySelector("#bird");
         this._birdImg = document.querySelector("#bird-img");
         this._isAlive = true;
+        
         this._isJumping;
+        this._jumpInterval;
+        this._jumpTimeout;
         this._jumpCount;
+        
         this._color = "yellow";
 
         this._flapView = ['downflap', "midflap", "upflap"];
@@ -57,6 +61,20 @@ class Bird {
     }
     set isJumping(isJumping){
         this._isJumping = isJumping;
+    }
+    
+    get jumpInterval(){
+      return this._jumpInterval;
+    }
+    set jumpInterval(jumpInterval){
+      this._jumpInterval = jumpInterval;
+    }
+    
+    get jumpTimeout(){
+      return this._jumpTimeout;
+    }
+    set jumpTimeout(jumpTimeout){
+      this._jumpTimeout = jumpTimeout;
     }
 
     get jumpCount(){
