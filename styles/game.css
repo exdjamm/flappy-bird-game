@@ -70,8 +70,8 @@ img {
   transform: rotate(-25deg);
 }
 .bird-falling {
-    transition: transform 0.6s;
-    transform: rotate(70deg);
+    transition: transform 0.6s ease-in-out;
+    transform: rotate(80deg);
 }
 #initial-elements {
     display: flex;
