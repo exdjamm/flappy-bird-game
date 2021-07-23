@@ -12,15 +12,14 @@
     <title>Flappy Bird | Henrique Claranhan</title>
 </head>
 <body>
-    <div id="content">
-        <div id="max-score-box" class="game-element">
+    <section id="content">
+        <header id="max-score-box" class="game-element">
             <img id="max-score-img" src="./assets/sprites/messages/max-score.png" alt="max score box">
             <div id="max-score-numbers"></div>
-        </div>
-        <div id="game-screen">
-            
+        </header>
+        <main id="game-screen">
             <div id="background-repeat">
-                <div id="pipe-spawn">
+                <section id="pipe-spawn">
                     <div id="pipe-1" class="pipe-box game-element">
                         <img class="pipe pipe-top" src="./assets/sprites/colliders/pipe-green.png" alt="pipe">
                         <div class="space-between-pipes"></div>
@@ -31,11 +30,9 @@
                         <div class="space-between-pipes"></div>
                         <img class="pipe pipe-bottom" src="./assets/sprites/colliders/pipe-green.png" alt="pipe">
                     </div>
-                </div>
-
-                <div id="score-box" class="game-element"></div>
-
-                <div id="game-content">
+                </section>
+                <figure id="score-box" class="game-element"></figure>
+                <section id="game-content">
                     <div id="initial-elements" class="game-element">
                         <img id="game-title" src="./assets/sprites/messages/title.png" alt="">
                         <img id="get-ready" src="./assets/sprites/messages/get-ready.png" alt="">
@@ -45,17 +42,16 @@
                         <img id="bird-img" src="./assets/sprites/birds/yellow/downflap.png" alt="bird image">
                     </div>
                     <div id="bg-floor" class="game-element"></div>
-                </div>
+                </section>
             </div>
-
-        </div>
+        </main>
         <a href="https://www.github.com/henriqueclaranhan">
             <footer id="dev-github">
                 <img src="./assets/sprites/social/github.png" alt="">
                 <span>Henrique Claranhan</span>
             </footer>
         </a>
-    </div>
+    </section>
 </body>
 <script src="./scripts/GameAudio.js"></script>
 <script src="./scripts/Floor.js"></script>
