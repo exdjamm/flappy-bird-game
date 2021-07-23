@@ -6,7 +6,7 @@ class Bird {
         
         this._isJumping;
         this._jumpInterval;
-        this._jumpTimeout;
+        this._jumpTimeouts = [];
         this._jumpCount;
         
         this._color = "yellow";
@@ -70,11 +70,11 @@ class Bird {
       this._jumpInterval = jumpInterval;
     }
     
-    get jumpTimeout(){
-      return this._jumpTimeout;
+    get jumpTimeouts(){
+      return this._jumpTimeouts;
     }
-    set jumpTimeout(jumpTimeout){
-      this._jumpTimeout = jumpTimeout;
+    set jumpTimeouts(jumpTimeouts){
+      this._jumpTimeouts = jumpTimeouts;
     }
 
     get jumpCount(){
@@ -123,7 +123,8 @@ class Bird {
 
     jump(){
         clearInterval(this.jumpInterval);
-        clearTimeout(this.jumpTimeout);
+        this.jumpTimeouts.forEach(clearTimeout);
+
         this.jumpCount = 0;
         this.isJumping = true;
 
@@ -137,10 +138,18 @@ class Bird {
 
             if(this.jumpCount > 32) {
                 clearInterval(this.jumpInterval);
-                this.jumpTimeout = setTimeout(() => {
-                  this.toggleBirdImgRotation("bird-falling-start");
+                
+                let fallingStartTimeout = setTimeout(() => {
+                    this.toggleBirdImgRotation("bird-falling-start");
+                }, 50);
+
+                this.jumpTimeouts.push(fallingStartTimeout);
+
+                let fallingTimeout = setTimeout(() => {
                     this.isJumping = false;
                 }, 145);
+
+                this.jumpTimeouts.push(fallingTimeout);
             }
         }, 6);
     }
