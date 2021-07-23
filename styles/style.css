@@ -1,12 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
 * {
     margin: 0;
     padding: 0;
-}
-
-img {
-    image-rendering: pixelated;
 }
 
 #content {
@@ -18,26 +12,3 @@ img {
     align-items: center;
     background: linear-gradient(to bottom, #50C1CB 0%, #50C1CB 50%, #DFD996 50%, #DFD996 100%);
 }
-
-#dev-github {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    position: absolute;
-    max-width: 150px;
-    bottom: 20px;
-    left: 20px;
-}
-#dev-github img {
-    border-radius: 4px;
-    width: 28px;
-    margin-right: 4px;
-}
-#dev-github span {
-    margin-left: 4px;
-    font-family: 'Press Start 2P', cursive;
-    color: black;
-    font-size: 10px;
-    letter-spacing: 0.5px;
-}
-
