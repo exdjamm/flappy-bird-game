@@ -1,7 +1,7 @@
 class ScoreController {
     constructor(){
         this._score;
-        this._maxScore = 0;
+        this._maxScore = localStorage.getItem('maxScore');
 
         this._scoreBox = document.querySelector("#score-box");
         this._maxScoreBox = document.querySelector("#max-score-box");
@@ -10,6 +10,8 @@ class ScoreController {
 
     initialize(){
         this.score = 0;
+        this.maxScore = (localStorage.getItem('maxScore') == null) ? 0 : this.maxScore;
+
         this.updateMaxScore();
         this.updateScoreInBox(this.scoreBox, this.score);
         this.showScoreBoxes();
@@ -86,6 +88,7 @@ class ScoreController {
     updateMaxScore(){
         if(this.score > this.maxScore){
             this.maxScore = this.score;
+            localStorage.setItem('maxScore', this.maxScore)
         }
 
         this.updateScoreInBox(this.maxScoreNumbers, this.maxScore);
