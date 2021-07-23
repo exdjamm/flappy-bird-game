@@ -124,7 +124,7 @@ img {
     transform: rotate(180deg);
 }
 .space-between-pipes {
-    height: 160px;
+    height: 200px;
     width: 50%;
     align-self: flex-end;
 }
