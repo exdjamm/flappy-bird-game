@@ -130,16 +130,20 @@ class GameController {
     initFallIntervall(){
         this.fallInterval = setInterval(() => {
             let birdCoordinates = this.bird.getBirdCoordinates();
-            
+
             if(!this.bird.isJumping){
                 if(!this.floorIsColliding(birdCoordinates.bottom)){
-                    this.bird.setBirdStyleTop(this.bird.getBirdStyleTop() + 2);
+                    if (this.bird.birdImg.className !== "bird-falling") {
+                        this.bird.toggleBirdImgRotation("bird-falling");
+                    }
+
+                    this.bird.setBirdStyleTop(this.bird.getBirdStyleTop() + 2.2);
                 }
                 else {
                     clearInterval(this.fallInterval);
                 }
             }
-        }, 5.75);
+        }, 5);
     }
 
     detectAllCollisions(){

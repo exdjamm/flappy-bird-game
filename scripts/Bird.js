@@ -1,6 +1,7 @@
 class Bird {
     constructor(){
         this._birdElement = document.querySelector("#bird");
+        this._birdImg = document.querySelector("#bird-img");
         this._isAlive = true;
         this._isJumping;
         this._jumpCount;
@@ -21,9 +22,11 @@ class Bird {
         this.isJumping = false;
         this.goToStartPosition();
         this.startFlapWave();
+
+        this.toggleBirdImgRotation();
         
         this._flapInterval = setInterval(() => {
-            this.birdElement.src = `./assets/sprites/birds/${this.color}/${this.flapView[this.flapState]}.png`;
+            this.birdImg.src = `./assets/sprites/birds/${this.color}/${this.flapView[this.flapState]}.png`;
             this.flapState = (this.flapState == 2) ? 0 : this.flapState+1 ;
         }, 125);
     }
@@ -33,6 +36,13 @@ class Bird {
     }
     set birdElement(newBirdElement){
         this._birdElement = newBirdElement;
+    }
+
+    get birdImg(){
+        return this._birdImg;
+    }
+    set birdImg(birdImg){
+        this._birdImg = birdImg;
     }
 
     get isAlive(){
@@ -89,6 +99,10 @@ class Bird {
         return this.birdElement.getBoundingClientRect();
     }
 
+    toggleBirdImgRotation(className = ""){
+        this.birdImg.className = className;
+    }
+
     jump(){
         clearInterval(this.jumpInterval);
         clearTimeout(this.jumpTimeout);
@@ -97,18 +111,19 @@ class Bird {
 
         this.jumpInterval = setInterval(() => {
             this.jumpCount++;
+            this.toggleBirdImgRotation("bird-jumping");
 
             if(this.getBirdCoordinates().top > 10){
                 this.setBirdStyleTop(this.getBirdStyleTop() - 2);
             }
 
-            if(this.jumpCount > 30) {
+            if(this.jumpCount > 32) {
                 clearInterval(this.jumpInterval);
                 this.jumpTimeout = setTimeout(() => {
                     this.isJumping = false;
-                }, 90);
+                }, 145);
             }
-        }, 6.25);
+        }, 6);
     }
 
     goToStartPosition(){

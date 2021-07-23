@@ -55,9 +55,19 @@ img {
     height: 7.5vh;
 }
 #bird {
+    animation: birdwave 0.5s ease-in-out infinite alternate;
+}
+#bird, #bird-img {
     width: 52px;
     height: 36.7px;
-    animation: birdwave 0.5s ease-in-out infinite alternate;
+}
+.bird-jumping {
+    transition: transform 0.25s;
+    transform: rotate(-50deg);
+}
+.bird-falling {
+    transition: transform 0.6s;
+    transform: rotate(50deg);
 }
 #initial-elements {
     display: flex;
