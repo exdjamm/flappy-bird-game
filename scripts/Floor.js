@@ -20,4 +20,8 @@ class Floor {
     stopLoop(){
         this.floor.style.animationPlayState = 'paused';
     }
+
+    getFloorCoordinateTop(){
+        return this.floor.getBoundingClientRect().top;
+    }
 }

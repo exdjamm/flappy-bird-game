@@ -1,25 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+img {
+    image-rendering: pixelated;
+}
+
 #game-screen {
     position: relative;
     margin-top: 180px;
-    /*height: calc(100vh - 180px);*/
-    width: 100vw;
-
-    display: flex;
-    justify-content: center;
+    height: 512px;
 }
-
+#background-repeat {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    background-repeat: repeat;
+    background-image: url("../assets/sprites/backgrounds/background-day.png");
+}
 #game-content {
     position: relative;
     width: 288px;
     height: 512px;
 }
-
-#background-repeat {
+.game-element {
     position: absolute;
-    height: 512px;
+}
+#max-score-box, #score-box {
+    opacity: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    transition: opacity ease 0.6s;
+    transition-delay: 0.2s;
+}
+#max-score-box {
+    z-index: 2;
+    left: 15px;
+    top: 15px;
+    align-items: center;
+}
+#max-score-img {
+    margin-right: 5px;
+}
+#max-score-numbers {
+    height: 35px;
+}
+#max-score-numbers * {
+    margin-right: -4px;
+}
+#score-box {
+    margin-top: -80vh;
     width: 100vw;
-    background-repeat: repeat;
-    background-image: var(--bg-time-of-day);
+    height: 7.5vh;
+}
+#bird {
+    animation: birdwave 0.5s ease-in-out infinite alternate;
+}
+#bird, #bird-img {
+    width: 52px;
+    height: 36.7px;
+}
+.bird-jumping {
+    transition: transform 0.25s;
+    transform: rotate(-30deg);
+}
+.bird-falling-start {
+  transition: transform 0.5s;
+  transform: rotate(-10deg);
+}
+.bird-falling {
+    transition: transform 0.6s ease-in-out;
+    transform: rotate(80deg);
+}
+#initial-elements {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: ease 0.6s;
+}
+#game-title {
+    position: relative;
+    width: 250px;
+    margin-top: 100px;
+    margin-bottom: 35px;
+}
+#get-ready {
+    width: 170px;
+    margin-bottom: 50px;
+}
+#click {
+    position: absolute;
+    bottom: -160px;
 }
 
 #pipe-spawn{
@@ -49,48 +124,53 @@
     transform: rotate(180deg);
 }
 .space-between-pipes {
-    background-color: red;
-    padding: 75px 0;
+    height: 160px;
+    width: 50%;
+    align-self: flex-end;
 }
 
 #bg-floor {
     bottom: 0;
-    left: calc(-50vw + calc(288px / 2) );
+    left: -337px;
     height: 112px;
-
-    width: 100vw;
-    overflow: hidden;
-
-
+    width: 2016px;
+    background-repeat: repeat;
+    background-image: url("../assets/sprites/colliders/base.png");
+    animation: floorloop 2.1s linear infinite;
 
     -moz-box-shadow: 0 110px 1px #dfd996;
     -webkit-box-shadow: 0 110px 1px #dfd996;
     box-shadow: 0 110px 1px #dfd996;
-
+}
+#dev-github {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+#dev-github img {
+    border-radius: 4px;
+    width: 28px;
+    margin-right: 4px;
+}
+#dev-github span {
+    max-width: 150px;
+    margin-left: 4px;
+    font-family: 'Press Start 2P', cursive;
+    color: black;
+    font-size: 10px;
+    letter-spacing: 0.5px;
 }
 
-#floor-front{
-    position: absolute;
-    z-index: 1;
-
-    height: 100%;
-    width: 100%;
-
-    background-repeat: repeat;
-    background-image: var(--img-front-base);
-}
-
-#floor-back{
-    position: absolute;
-    z-index: 0;
-
-    height: 56px;
-    width: 100%;
-
-
-    background-repeat: repeat;
-    background-image: var(--img-back-base);   
-    animation: fakeloop 1s linear infinite;
+@keyframes birdwave {
+    from {
+        transform: translateY(-20%);
+    }
+    to {
+        transform: translateY(20%);
+    }
 }
 
 @keyframes pipeloop {
@@ -102,11 +182,11 @@
     }
 }
 
-@keyframes fakeloop{
-    from {
-        transform: translateY(0px);  
-
-    }to{
-        transform: translateY(-26px);  
+@keyframes floorloop {
+    0% {
+       margin-left: -336px;
+    }
+    100% {
+       margin-left: -672px;
     }
 }

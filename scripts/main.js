@@ -1,1 +1,1 @@
-HomeScreen = new HomeScreen();
+let homeScreen = new HomeScreen();

@@ -3,19 +3,17 @@ class HomeScreen {
         this._content = document.querySelector("#content");
         this._initialElements = document.querySelector("#initial-elements");
 
+        this._scoreController;
         this._bird;
+        this._pipes;
         this._floor;
-        this.pipes;
 
         this.initialize();
-        this.waitFirstClick();
     }
 
     initialize(){
-        this.bird = new Bird();
-        this.pipes = new Pipe();
-        this.floor = new Floor();
-        this.showInitialElements();
+        this.scoreController = new ScoreController();
+        this.initializeElements();
     }
 
     get content(){
@@ -27,6 +25,13 @@ class HomeScreen {
     }
     set initialElements(initialElements){
         this._initialElements = initialElements;
+    }
+
+    get scoreController(){
+        return this._scoreController;
+    }
+    set scoreController(score){
+        this._scoreController = score;
     }
 
     get bird(){
@@ -58,6 +63,14 @@ class HomeScreen {
 
         this.content.addEventListener("click", this.clickListener, false);
     }
+
+    initializeElements(){
+        this.bird = new Bird();
+        this.pipes = new Pipe();
+        this.floor = new Floor();
+        this.waitFirstClick();
+        this.showInitialElements();
+    }
     
     showInitialElements(){
         this.initialElements.style.opacity = "1";
@@ -69,7 +82,7 @@ class HomeScreen {
     runGame(){
         this.content.removeEventListener("click", this.clickListener, false);
 
-        this.game = new GameController(this.bird, this.pipes, this.floor);
+        this.game = new GameController(this.bird, this.pipes, this.floor, this.scoreController);
     }
 
 }
