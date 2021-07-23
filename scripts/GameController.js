@@ -137,7 +137,7 @@ class GameController {
                         this.bird.toggleBirdImgRotation("bird-falling");
                     }
 
-                    this.bird.setBirdStyleTop(this.bird.getBirdStyleTop() + 2.2);
+                    this.bird.setBirdStyleTop(this.bird.getBirdStyleTop() + 3);
                 }
                 else {
                     clearInterval(this.fallInterval);
