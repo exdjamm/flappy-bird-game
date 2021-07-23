@@ -63,11 +63,15 @@ img {
 }
 .bird-jumping {
     transition: transform 0.25s;
-    transform: rotate(-50deg);
+    transform: rotate(-40deg);
+}
+.bird-falling-start {
+  transition: transform 0.7s;
+  transform: rotate(-25deg);
 }
 .bird-falling {
     transition: transform 0.6s;
-    transform: rotate(50deg);
+    transform: rotate(70deg);
 }
 #initial-elements {
     display: flex;

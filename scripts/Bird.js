@@ -138,6 +138,7 @@ class Bird {
             if(this.jumpCount > 32) {
                 clearInterval(this.jumpInterval);
                 this.jumpTimeout = setTimeout(() => {
+                  this.toggleBirdImgRotation("bird-falling-start");
                     this.isJumping = false;
                 }, 145);
             }
