@@ -2,11 +2,11 @@ class GameAudio {
     constructor(){
         this._audioPath = "./assets/audio/"
         this._audioEffects = {
-            "die": `${this.audioPath}die.wav`,
-            "hit": `${this.audioPath}hit.wav`,
-            "point": `${this.audioPath}point.wav`,
-            "swoosh": `${this.audioPath}swoosh.wav`,
-            "wing": `${this.audioPath}wing.wav`
+            "die": `${this.audioPath}die.ogg`,
+            "hit": `${this.audioPath}hit.ogg`,
+            "point": `${this.audioPath}point.ogg`,
+            "swoosh": `${this.audioPath}swoosh.ogg`,
+            "wing": `${this.audioPath}wing.ogg`
         }
     }
 
