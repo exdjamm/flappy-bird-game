@@ -5,6 +5,7 @@ class GameController {
         this._bird = bird;
         this._pipes = pipes;
         this._floor = floor;
+        this._gameOverScreen = new GameOverScreen(this.scoreController);
 
         this._gameIsRunning = true;
         this._gameAudio = new GameAudio();
@@ -50,6 +51,10 @@ class GameController {
         return this._floor;
     }
 
+    get gameOverScreen(){
+        return this._gameOverScreen;
+    }
+    
     get gameAudio(){
         return this._gameAudio;
     }
@@ -188,11 +193,7 @@ class GameController {
 
         this.scoreController.updateMaxScore();
         this.stopAllGameElements();
-        this.showGameOverScreen();
-    }
-
-    showGameOverScreen(){
-
+        this.gameOverScreen.showGameOverScreen();
     }
 
     startAllGameElements(){
