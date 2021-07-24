@@ -189,7 +189,7 @@ class GameController {
         
         setTimeout(() => {
             this.gameAudio.playAudio("die")
-        }, 500);
+        }, 100);
 
         this.scoreController.updateMaxScore();
         this.stopAllGameElements();
