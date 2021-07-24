@@ -33,13 +33,13 @@ class Floor {
     getFloorCoordinateTop(){
         return this.floor.getBoundingClientRect().top;
     }
-    
+
     getFloorCoordinateBottom(){
         return this.floor.getBoundingClientRect().bottom;
     }
 
     adjustFloorBottomPadding(){
-        this.floorBottom.style.paddingTop = `${Math.ceil(window.innerHeight - this.getFloorCoordinateBottom())}px`;
+        this.floorBottom.style.paddingTop = `${Math.ceil(window.innerHeight - this.getFloorCoordinateBottom()+2)}px`;
     }
 
 }
