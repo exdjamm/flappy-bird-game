@@ -81,7 +81,7 @@ class ScoreController {
     }
 
     increaseScore(){
-        this.score++;
+        this.score += 2;
         this.updateScoreInBox(this.scoreBox, this.score);
     }
 
