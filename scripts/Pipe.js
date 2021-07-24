@@ -103,10 +103,20 @@ class Pipe {
     }
 
     getRandomPipePosY(max = this.pipePosY.MAX, min = this.pipePosY.MIN){
-        const birdPosition = Number(document.querySelector("#bird").style.top.replace("px", "")) 
+        let maxPipe = 570 - (200-160)
         const dificultRange = Math.floor(Math.random()*(50-20 + 1) +20);
+        const birdPosition = Number(document.querySelector("#bird").style.top.replace("px", "")) 
+        
+        const {height: windowHeight} = document.querySelector("html").getBoundingClientRect()
 
-        const pipeAltura = -570 + birdPosition - dificultRange
+        // if (cheatON){
+        //     maxPipe = 570
+        // }
+
+        const pipeAltura = - maxPipe + birdPosition - dificultRange
+        if( (birdPosition/windowHeight) > 0.8){
+            return pipeAltura - 160//Math.floor(Math.random()*(max - min + 1) + min);    
+        }
         return pipeAltura //Math.floor(Math.random()*(max - min + 1) + min);
     }
 
