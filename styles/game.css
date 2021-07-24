@@ -185,6 +185,8 @@ img {
     position: absolute;
     width: 250px;
     margin-top: 140px;
+    animation: game-over-img-appearing 0.4s ease-in-out;
+    animation-play-state: paused;
 }
 #game-over-modal {
     position: absolute;
@@ -192,6 +194,8 @@ img {
     height: 160px;
     margin-top: 245px;
     display: flex;
+    animation: modal-appearing 0.5s ease-in-out;
+    animation-play-state: paused;
 }
 #game-over-modal img {
     width: 100%;
@@ -218,6 +222,7 @@ img {
     display: flex;
 }
 #restart-button {
+    opacity: 0;
     color: #FFFFFF;
     text-shadow: #BF4E01 0 2px;
     background-color: black;
@@ -227,6 +232,8 @@ img {
     margin-top: 435px;
     display: grid;
     place-items: center;
+    transition: opacity 0.5s ease-in-out;
+    transition-delay: 0.5s;
 }
 #restart-button:active img, #restart-button:active p {
     opacity: 70%;
@@ -264,5 +271,26 @@ img {
     }
     100% {
        margin-left: -672px;
+    }
+}
+
+@keyframes game-over-img-appearing {
+    0% {
+        margin-top: 140px;
+    }
+    50% {
+        margin-top: 130px;
+    }
+    100% {
+        margin-top: 140px;
+    }
+}
+
+@keyframes modal-appearing {
+    from {
+        margin-top: 100vh;
+    }
+    to {
+        margin-top: 245px;
     }
 }

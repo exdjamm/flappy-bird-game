@@ -2,13 +2,14 @@ class GameController {
     constructor(bird, pipes, floor, scoreController){
         this._content = document.querySelector("#content");
         this._scoreController = scoreController;
+        this._gameAudio = new GameAudio();
+        
         this._bird = bird;
         this._pipes = pipes;
         this._floor = floor;
-        this._gameOverScreen = new GameOverScreen(this.scoreController);
+        this._gameOverScreen = new GameOverScreen(this.scoreController, this.gameAudio);
 
         this._gameIsRunning = true;
-        this._gameAudio = new GameAudio();
 
         this.initialize();
     }
