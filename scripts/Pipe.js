@@ -103,7 +103,11 @@ class Pipe {
     }
 
     getRandomPipePosY(max = this.pipePosY.MAX, min = this.pipePosY.MIN){
-        return Math.floor(Math.random()*(max - min + 1) + min);
+        const birdPosition = Number(document.querySelector("#bird").style.top.replace("px", "")) 
+        const dificultRange = Math.floor(Math.random()*(50-20 + 1) +20);
+
+        const pipeAltura = -570 + birdPosition - dificultRange
+        return pipeAltura //Math.floor(Math.random()*(max - min + 1) + min);
     }
 
     setRandomPipePosY(pipeBox){
