@@ -9,7 +9,7 @@ class Bird {
         this._jumpTimeouts = [];
         this._jumpCount;
         
-        this._color = "yellow";
+        this._colors = ["yellow", "blue", "red"];
 
         this._flapView = ['downflap', "midflap", "upflap"];
         this._flapState = 1;
@@ -28,9 +28,11 @@ class Bird {
         this.startFlapWave();
 
         this.toggleBirdImgRotation();
+
+        let birdColor = this.colors[Math.floor(Math.random()*this.colors.length)];
         
         this._flapInterval = setInterval(() => {
-            this.birdImg.src = `./assets/sprites/birds/${this.color}/${this.flapView[this.flapState]}.png`;
+            this.birdImg.src = `./assets/sprites/birds/${birdColor}/${this.flapView[this.flapState]}.png`;
             this.flapState = (this.flapState == 2) ? 0 : this.flapState+1 ;
         }, 125);
     }
@@ -84,11 +86,11 @@ class Bird {
         this._jumpCount = jumpCount;
     }
 
-    get color(){
-        return this._color;
+    get colors(){
+        return this._colors;
     }
-    set color(newColor){
-        this._color = newColor;
+    set colors(newColors){
+        this._colors = newColors;
     }
 
     get flapView(){

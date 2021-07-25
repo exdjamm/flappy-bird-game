@@ -53,7 +53,7 @@ img {
     height: 7.5vh;
 }
 #bird {
-    animation: birdwave 0.5s ease-in-out infinite alternate;
+    animation: birdwave 0.5s ease-in-out infinite alternate, bird-appearing 0.4s linear;
 }
 #bird, #bird-img {
     width: 52px;
@@ -245,6 +245,15 @@ img {
 }
 #restart-button p {
     position: absolute;
+}
+
+@keyframes bird-appearing {
+    from {
+        opacity: 0%;
+    }
+    to {
+        opacity: 100%;
+    }
 }
 
 @keyframes birdwave {
