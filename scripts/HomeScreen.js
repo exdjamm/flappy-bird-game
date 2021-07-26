@@ -68,8 +68,11 @@ class HomeScreen {
         this.bird = new Bird();
         this.pipes = new Pipe();
         this.floor = new Floor();
-        this.waitFirstClick();
         this.showInitialElements();
+
+        setTimeout(() => {
+            this.waitFirstClick();
+        }, 400);
     }
     
     showInitialElements(){
