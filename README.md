@@ -48,7 +48,7 @@ Tap to flap the bird's wings and avoid collisions with the floor and pipes.
 </div>
 
 ## 🚀 How to run the game
-You can run the game online by <a href="https://github.com/henriqueclaranhan/flappy-bird-game/blob/main/images/etc/start-button.png">clicking here</a> or on your machine by following the steps:
+You can run the game online by <a href="https://henriqueclaranhan.github.io/flappy-bird-game">clicking here</a> or on your machine by following the steps:
 
 1. Clone this repository
 ```shell
