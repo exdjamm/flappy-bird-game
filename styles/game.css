@@ -131,7 +131,7 @@ img {
     bottom: 0;
     left: -337px;
     height: 112px;
-    width: 2016px;
+    width: 220vw;
     background-repeat: repeat;
     background-image: url("../assets/sprites/colliders/base.png");
     animation: floorloop 2.1s linear infinite;
