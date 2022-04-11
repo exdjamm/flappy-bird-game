@@ -53,6 +53,7 @@ img {
     height: 7.5vh;
 }
 #bird {
+    will-change: opacity, transform, top;
     animation: birdwave 0.5s ease-in-out infinite alternate, bird-appearing 0.4s linear;
 }
 #bird, #bird-img {
